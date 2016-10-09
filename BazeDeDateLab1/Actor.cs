@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BazeDeDateLab1
 {
-    class Actor
+    public class Actor
     {
         private string __name;
 

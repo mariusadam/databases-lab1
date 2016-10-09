@@ -1,0 +1,1 @@
+﻿title 1,country 1,1996,6.7,Nume1;Nume2;Nume3

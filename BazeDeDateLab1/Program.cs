@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BazeDeDateLab1.Repository;
+using BazeDeDateLab1.Controller;
 
 namespace BazeDeDateLab1
 {
@@ -16,7 +18,11 @@ namespace BazeDeDateLab1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            FilmRepository repo = new FilmRepository(@"filme.txt");
+            FilmController ctrl = new FilmController(repo);
+
+            Application.Run(new Form1(ctrl));
         }
     }
 }

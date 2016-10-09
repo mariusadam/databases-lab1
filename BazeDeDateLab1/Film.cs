@@ -6,32 +6,41 @@ using System.Threading.Tasks;
 
 namespace BazeDeDateLab1
 {
-    class Film
+    public class Film
     {
-        private string      __title;
-        private string      __country;
-        private int         __year;
-        private double      __rating;
-        private List<Actor> __actors;
+        private string      title;
+        private string      country;
+        private int         year;
+        private double      rating;
+        private List<Actor> actors;
 
-        public Film(string title, int year, string country,double rating)
+        public Film(string title, int year, string country, double rating)
         {
-            __title   = title;
-            __year    = year;
-            __country = country;
-            __rating  = rating;
-            __actors = new List<Actor>(0);
+            this.title   = title;
+            this.year    = year;
+            this.country = country;
+            this.rating  = rating;
+            this.actors  = new List<Actor>();
+        }
+
+        public Film(string title, int year, string country,double rating, List<Actor> actors)
+        {
+            this.title   = title;
+            this.year    = year;
+            this.country = country;
+            this.rating  = rating;
+            this.actors  = actors;
         }
 
         public string Title
         {
             get
             {
-                return __title;
+                return title;
             }
             set
             {
-                __title = value;
+                title = value;
             }
         }
 
@@ -39,11 +48,11 @@ namespace BazeDeDateLab1
         {
             get
             {
-                return __year;
+                return year;
             }
             set
             {
-                __year = value;
+                year = value;
             }
         }
         
@@ -51,11 +60,11 @@ namespace BazeDeDateLab1
         {
             get
             {
-                return __rating;
+                return rating;
             }
             set
             {
-                __rating = value;
+                rating = value;
             }
         }
 
@@ -63,11 +72,11 @@ namespace BazeDeDateLab1
         {
             get
             {
-                return __country;
+                return country;
             }
             set
             {
-                __country = value;
+                country = value;
             }
         }
 
@@ -75,12 +84,19 @@ namespace BazeDeDateLab1
         {
             get
             {
-                return __actors;
+                return actors;
             }
             set
             {
-                __actors = value;
+                actors = value;
             }
+        }
+
+        public Film addActor(Actor actor)
+        {
+            this.actors.Add(actor);
+
+            return this;
         }
     }
 }

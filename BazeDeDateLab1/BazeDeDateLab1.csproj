@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Actor.cs" />
     <Compile Include="Film.cs" />
+    <Compile Include="FilmController.cs" />
+    <Compile Include="FilmRepository.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +82,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="filme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
