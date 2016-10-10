@@ -38,10 +38,6 @@ namespace BazeDeDateLab1
             {
                 return title;
             }
-            set
-            {
-                title = value;
-            }
         }
 
         public int Year
@@ -97,6 +93,22 @@ namespace BazeDeDateLab1
             this.actors.Add(actor);
 
             return this;
+        }
+
+        public override string ToString()
+        {
+            return String.Format(
+                        "{0} | {1} | {2} | {3}",
+                        this.Title,
+                        this.Country,
+                        Convert.ToString(this.Year),
+                        Convert.ToString(this.Rating)
+                    );
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Film && ((Film)obj).Title == this.Title;
         }
     }
 }

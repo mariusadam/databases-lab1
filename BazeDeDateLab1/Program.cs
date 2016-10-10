@@ -19,7 +19,7 @@ namespace BazeDeDateLab1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            FilmRepository repo = new FilmRepository(@"filme.txt");
+            FilmRepository repo = new FilmRepository("C:\\Users\\marius\\Source\\Repos\\db-course-lab1\\BazeDeDateLab1\\filme.txt");
             FilmController ctrl = new FilmController(repo);
 
             Application.Run(new Form1(ctrl));

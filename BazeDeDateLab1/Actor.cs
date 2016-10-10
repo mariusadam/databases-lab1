@@ -26,5 +26,15 @@ namespace BazeDeDateLab1
                 __name = value;
             }
         }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj != null && obj is Actor && (obj as Actor).Name == this.Name;
+        }
     }
 }

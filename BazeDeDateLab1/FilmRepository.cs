@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BazeDeDateLab1.Exception;
 
 namespace BazeDeDateLab1.Repository
 {
@@ -31,23 +32,31 @@ namespace BazeDeDateLab1.Repository
             char[] comma = { ',' }, semicolon = { ';' };
             int year;
             double rating;
-            List<Actor> actors = new List<Actor>();
 
+            line = file.ReadLine();
             while (line != null)
             {
-                line = file.ReadLine();
                 parts = line.Split(comma);
+
+                if (parts.Length != 5)
+                {
+                    line = file.ReadLine();
+                    continue;
+                }
+
                 title = parts[0];
                 country = parts[1];
                 year = Convert.ToInt32(parts[2]);
                 rating = Convert.ToDouble(parts[3]);
                 actorsParts = parts[4].Split(semicolon);
-                actors.Clear();
+                List<Actor> actors = new List<Actor>();
                 foreach (string name in actorsParts)
                 {
                     actors.Add(new Actor(name));
                 }
                 this.movies.Add(new Film(title, year, country, rating, actors));
+
+                line = file.ReadLine();
             }
             file.Close();
         }
@@ -88,6 +97,53 @@ namespace BazeDeDateLab1.Repository
             {
                 return movies;
             }
+        }
+
+        public void insert(Film movie)
+        {
+            try
+            {
+                this.findByTitle(movie.Title);
+                throw new DuplicateTitleException("This movie is already added!");
+            } catch (ItemNotFoundException ex)
+            {
+                this.Movies.Add(movie);
+                this.saveToFile();
+            }
+            
+        }
+
+        public Film findByTitle(string title)
+        {
+            Film result = this.Movies.Find(movie => movie.Title == title);
+
+            if (result == default(Film))
+            {
+                throw new ItemNotFoundException();
+            }
+
+            return result;
+        }
+
+        public Film delete(string title)
+        {
+            Film movie = this.findByTitle(title);
+            this.Movies.Remove(movie);
+            this.saveToFile();
+            return movie;
+        }
+
+        public void update(Film newMovie)
+        {
+            int poz = this.Movies.FindIndex(movie => movie.Title == newMovie.Title);
+
+            if (poz == -1)
+            {
+                throw new ItemNotFoundException();
+            }
+
+            this.Movies[poz] = newMovie;
+            this.saveToFile();
         }
     }
 }
