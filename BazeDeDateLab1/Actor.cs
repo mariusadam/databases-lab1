@@ -8,23 +8,11 @@ namespace BazeDeDateLab1
 {
     public class Actor
     {
-        private string __name;
+        public string Name { set; get; }
 
         public Actor(string name)
         {
-            __name = name;
-        }
-
-        public string Name
-        {
-            get
-            {
-                return __name;
-            }
-            set
-            {
-                __name = value;
-            }
+            Name = name;
         }
 
         public override string ToString()

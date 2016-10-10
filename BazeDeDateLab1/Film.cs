@@ -8,89 +8,33 @@ namespace BazeDeDateLab1
 {
     public class Film
     {
-        private string      title;
-        private string      country;
-        private int         year;
-        private double      rating;
-        private List<Actor> actors;
+        public string      Title   { get; }
+        public string      Country { set; get; }
+        public int         Year    { set; get; }
+        public double      Rating  { set; get; }
+        public List<Actor> Actors  { set; get; }
 
         public Film(string title, int year, string country, double rating)
         {
-            this.title   = title;
-            this.year    = year;
-            this.country = country;
-            this.rating  = rating;
-            this.actors  = new List<Actor>();
+            this.Title   = title;
+            this.Year    = year;
+            this.Country = country;
+            this.Rating  = rating;
+            this.Actors  = new List<Actor>();
         }
 
         public Film(string title, int year, string country,double rating, List<Actor> actors)
         {
-            this.title   = title;
-            this.year    = year;
-            this.country = country;
-            this.rating  = rating;
-            this.actors  = actors;
-        }
-
-        public string Title
-        {
-            get
-            {
-                return title;
-            }
-        }
-
-        public int Year
-        {
-            get
-            {
-                return year;
-            }
-            set
-            {
-                year = value;
-            }
-        }
-        
-        public double Rating
-        {
-            get
-            {
-                return rating;
-            }
-            set
-            {
-                rating = value;
-            }
-        }
-
-        public string Country
-        {
-            get
-            {
-                return country;
-            }
-            set
-            {
-                country = value;
-            }
-        }
-
-        public List<Actor> Actors
-        {
-            get
-            {
-                return actors;
-            }
-            set
-            {
-                actors = value;
-            }
+            this.Title   = title;
+            this.Year    = year;
+            this.Country = country;
+            this.Rating  = rating;
+            this.Actors  = actors;
         }
 
         public Film addActor(Actor actor)
         {
-            this.actors.Add(actor);
+            this.Actors.Add(actor);
 
             return this;
         }
@@ -108,7 +52,7 @@ namespace BazeDeDateLab1
 
         public override bool Equals(object obj)
         {
-            return obj is Film && ((Film)obj).Title == this.Title;
+            return obj is Film && (obj as Film).Title == this.Title;
         }
     }
 }

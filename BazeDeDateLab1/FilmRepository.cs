@@ -9,24 +9,24 @@ namespace BazeDeDateLab1.Repository
 {
     public class FilmRepository
     {
-        private string     filename;
-        private List<Film> movies;
+        public string     Filename { get; }
+        public List<Film> Movies   { get; }
 
         public FilmRepository(string filename)
         {
-            this.filename = filename;
-            this.movies   = new List<Film>();
-            this.loadFromFile();
+            this.Filename = filename;
+            this.Movies   = new List<Film>();
+            this.LoadFromFile();
         }
 
         ~FilmRepository()
         {
-            this.saveToFile();
+            this.SaveToFile();
         }
 
-        private void loadFromFile()
+        private void LoadFromFile()
         {
-            System.IO.StreamReader file = new System.IO.StreamReader(this.filename);
+            System.IO.StreamReader file = new System.IO.StreamReader(this.Filename);
             string line = null, title, country;
             string[] parts, actorsParts;
             char[] comma = { ',' }, semicolon = { ';' };
@@ -54,18 +54,18 @@ namespace BazeDeDateLab1.Repository
                 {
                     actors.Add(new Actor(name));
                 }
-                this.movies.Add(new Film(title, year, country, rating, actors));
+                this.Movies.Add(new Film(title, year, country, rating, actors));
 
                 line = file.ReadLine();
             }
             file.Close();
         }
-        private void saveToFile()
+        private void SaveToFile()
         {
-            System.IO.StreamWriter file = new System.IO.StreamWriter(this.filename);
+            System.IO.StreamWriter file = new System.IO.StreamWriter(this.Filename);
             StringBuilder actorsString = new StringBuilder();
 
-            foreach(Film movie in this.movies)
+            foreach(Film movie in this.Movies)
             {
                 actorsString.Clear();
                 foreach(Actor actor in movie.Actors)
@@ -91,29 +91,21 @@ namespace BazeDeDateLab1.Repository
             file.Close();
         }
 
-        public List<Film> Movies
-        {
-            get
-            {
-                return movies;
-            }
-        }
-
-        public void insert(Film movie)
+        public void Insert(Film movie)
         {
             try
             {
-                this.findByTitle(movie.Title);
+                this.FindByTitle(movie.Title);
                 throw new DuplicateTitleException("This movie is already added!");
             } catch (ItemNotFoundException ex)
             {
                 this.Movies.Add(movie);
-                this.saveToFile();
+                this.SaveToFile();
             }
             
         }
 
-        public Film findByTitle(string title)
+        public Film FindByTitle(string title)
         {
             Film result = this.Movies.Find(movie => movie.Title == title);
 
@@ -125,15 +117,15 @@ namespace BazeDeDateLab1.Repository
             return result;
         }
 
-        public Film delete(string title)
+        public Film Delete(string title)
         {
-            Film movie = this.findByTitle(title);
+            Film movie = this.FindByTitle(title);
             this.Movies.Remove(movie);
-            this.saveToFile();
+            this.SaveToFile();
             return movie;
         }
 
-        public void update(Film newMovie)
+        public void Update(Film newMovie)
         {
             int poz = this.Movies.FindIndex(movie => movie.Title == newMovie.Title);
 
@@ -143,7 +135,7 @@ namespace BazeDeDateLab1.Repository
             }
 
             this.Movies[poz] = newMovie;
-            this.saveToFile();
+            this.SaveToFile();
         }
     }
 }

@@ -14,18 +14,18 @@ namespace BazeDeDateLab1
 {
     public partial class Form1 : Form
     {
-        private FilmController controller;
+        private FilmController Controller;
 
         public Form1(FilmController ctrl)
         {
-            this.controller = ctrl;
+            this.Controller = ctrl;
             InitializeComponent();
         }
 
-        private void refreshMoviesListBox()
+        private void RefreshMoviesListBox()
         {
             this.listBox1.Items.Clear();
-            foreach(Film movie in this.controller.getAllMovies())
+            foreach(Film movie in this.Controller.GetAllMovies())
             {
                 this.listBox1.Items.Add(movie);
             }
@@ -34,10 +34,10 @@ namespace BazeDeDateLab1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.refreshMoviesListBox();
+            this.RefreshMoviesListBox();
         }
 
-        public void reloadActorsListBox(List<Actor> list)
+        private void ReloadActorsListBox(List<Actor> list)
         {
             this.listBox2.Items.Clear();
             foreach (Actor actor in list)
@@ -47,15 +47,15 @@ namespace BazeDeDateLab1
             this.listBox2.Refresh();
         }
 
-        public void refreshActorsListBox(Film movie)
+        private void RefreshActorsListBox(Film movie)
         {
-            this.reloadActorsListBox(this.controller.findByTitle(movie.Title).Actors);
+            this.ReloadActorsListBox(this.Controller.FindByTitle(movie.Title).Actors);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Film movie = (Film) this.listBox1.SelectedItem;
-            this.refreshActorsListBox(movie);
+            this.RefreshActorsListBox(movie);
             this.textBox1.Text = movie.Title;
             this.textBox2.Text = Convert.ToString(movie.Year);
             this.textBox3.Text = movie.Country;
@@ -72,7 +72,7 @@ namespace BazeDeDateLab1
             this.textBox5.Text = actor.Name;
         }
 
-        private List<Actor> getCurrentActors()
+        private List<Actor> GetCurrentActors()
         {
             List<Actor> actors = new List<Actor>();
             foreach(Actor item in this.listBox2.Items)
@@ -90,14 +90,14 @@ namespace BazeDeDateLab1
             {
                 return;
             }
-            this.controller.update(
+            this.Controller.Update(
                     selected.Title,
                     Convert.ToInt32(this.textBox2.Text.ToString()),
                     this.textBox3.Text.ToString(),
                     Convert.ToDouble(this.textBox4.Text.ToString()),
-                    this.getCurrentActors()
+                    this.GetCurrentActors()
                 );
-            this.refreshMoviesListBox();
+            this.RefreshMoviesListBox();
             this.listBox1.SetSelected(this.listBox1.FindString(selected.Title), true);
         }
 
@@ -108,9 +108,9 @@ namespace BazeDeDateLab1
             {
                 return;
             }
-            this.controller.delete(selected.Title);
-            this.refreshMoviesListBox();
-            this.reloadActorsListBox(new List<Actor>());
+            this.Controller.Delete(selected.Title);
+            this.RefreshMoviesListBox();
+            this.ReloadActorsListBox(new List<Actor>());
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -122,9 +122,9 @@ namespace BazeDeDateLab1
 
             try
             {
-                Film movie = this.controller.create(title, year, country, rating, this.getCurrentActors());
-                this.refreshMoviesListBox();
-                this.refreshActorsListBox(movie);
+                Film movie = this.Controller.Create(title, year, country, rating, this.GetCurrentActors());
+                this.RefreshMoviesListBox();
+                this.RefreshActorsListBox(movie);
             } catch (DuplicateTitleException ex)
             {
                 MessageBox.Show(ex.Message);
@@ -133,9 +133,9 @@ namespace BazeDeDateLab1
 
         private void button7_Click(object sender, EventArgs e)
         {
-            List<Actor> actors = this.getCurrentActors();
+            List<Actor> actors = this.GetCurrentActors();
             actors.Add(new Actor(this.textBox5.Text.ToString()));
-            this.reloadActorsListBox(actors);
+            this.ReloadActorsListBox(actors);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -145,9 +145,9 @@ namespace BazeDeDateLab1
             {
                 return;
             }
-            List<Actor> actors = this.getCurrentActors();
+            List<Actor> actors = this.GetCurrentActors();
             actors.Remove(selected);
-            this.reloadActorsListBox(actors);
+            this.ReloadActorsListBox(actors);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -157,10 +157,10 @@ namespace BazeDeDateLab1
             {
                 return;
             }
-            List<Actor> actors = this.getCurrentActors();
+            List<Actor> actors = this.GetCurrentActors();
             selected.Name = this.textBox5.Text.ToString();
             actors[actors.FindIndex(actor => actor == selected)] = selected;
-            this.reloadActorsListBox(actors);
+            this.ReloadActorsListBox(actors);
         }
     }
 }

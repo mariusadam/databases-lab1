@@ -10,44 +10,44 @@ namespace BazeDeDateLab1.Controller
 {
     public class FilmController
     {
-        private FilmRepository repository;
+        private FilmRepository Repository;
         public FilmController(FilmRepository filmRepository)
         {
-            repository = filmRepository;
+            Repository = filmRepository;
         }
 
-        public List<Film> getAllMovies()
+        public List<Film> GetAllMovies()
         {
-            return repository.Movies;
+            return Repository.Movies;
         }
 
-        public Film findByTitle(string title)
+        public Film FindByTitle(string title)
         {
-            return this.repository.findByTitle(title);
+            return this.Repository.FindByTitle(title);
         }
 
-        public Film create(string title, int year, string country, double rating, List<Actor> actors)
+        public Film Create(string title, int year, string country, double rating, List<Actor> actors)
         {
             Film movie = new Film(title, year, country, rating, actors);
-            this.repository.insert(movie);
+            this.Repository.Insert(movie);
 
             return movie;
         }
 
-        public Film delete(string title)
+        public Film Delete(string title)
         {
-            return this.repository.delete(title);
+            return this.Repository.Delete(title);
         }
 
-        public void update(string title, int newYear, string newCountry, double newRating, List<Actor> newActors)
+        public void Update(string title, int newYear, string newCountry, double newRating, List<Actor> newActors)
         {
-            Film movie    = this.findByTitle(title);
+            Film movie    = this.FindByTitle(title);
             movie.Year    = newYear;
             movie.Country = newCountry;
             movie.Rating  = newRating;
             movie.Actors  = newActors;
 
-            this.repository.update(movie);
+            this.Repository.Update(movie);
         }
     }
 }
