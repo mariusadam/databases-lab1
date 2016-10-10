@@ -28,33 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.loadButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.moviesListBox = new System.Windows.Forms.ListBox();
+            this.actorsListBox = new System.Windows.Forms.ListBox();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.yearTextBox = new System.Windows.Forms.TextBox();
+            this.countryTextBox = new System.Windows.Forms.TextBox();
+            this.ratingTextBox = new System.Windows.Forms.TextBox();
+            this.updateMovieButton = new System.Windows.Forms.Button();
+            this.actorNameTextBox = new System.Windows.Forms.TextBox();
+            this.updateActorButton = new System.Windows.Forms.Button();
+            this.deleteActorButton = new System.Windows.Forms.Button();
+            this.addMovieButton = new System.Windows.Forms.Button();
+            this.deleteMovieButton = new System.Windows.Forms.Button();
+            this.addActorButtton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // loadButton
             // 
-            this.button1.Location = new System.Drawing.Point(46, 238);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(332, 31);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Load from file";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.loadButton.Location = new System.Drawing.Point(46, 238);
+            this.loadButton.Margin = new System.Windows.Forms.Padding(4);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(332, 31);
+            this.loadButton.TabIndex = 0;
+            this.loadButton.Text = "Load from file";
+            this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
             // label1
             // 
@@ -66,143 +66,143 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Movies";
             // 
-            // listBox1
+            // moviesListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(46, 67);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(332, 132);
-            this.listBox1.TabIndex = 2;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.moviesListBox.FormattingEnabled = true;
+            this.moviesListBox.ItemHeight = 16;
+            this.moviesListBox.Location = new System.Drawing.Point(46, 67);
+            this.moviesListBox.Margin = new System.Windows.Forms.Padding(4);
+            this.moviesListBox.Name = "moviesListBox";
+            this.moviesListBox.Size = new System.Drawing.Size(332, 132);
+            this.moviesListBox.TabIndex = 2;
+            this.moviesListBox.SelectedIndexChanged += new System.EventHandler(this.moviesListBox_SelectedIndexChanged);
             // 
-            // listBox2
+            // actorsListBox
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(417, 67);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(207, 132);
-            this.listBox2.TabIndex = 3;
-            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            this.actorsListBox.FormattingEnabled = true;
+            this.actorsListBox.ItemHeight = 16;
+            this.actorsListBox.Location = new System.Drawing.Point(417, 67);
+            this.actorsListBox.Margin = new System.Windows.Forms.Padding(4);
+            this.actorsListBox.Name = "actorsListBox";
+            this.actorsListBox.Size = new System.Drawing.Size(207, 132);
+            this.actorsListBox.TabIndex = 3;
+            this.actorsListBox.SelectedIndexChanged += new System.EventHandler(this.actorsListBox_SelectedIndexChanged);
             // 
-            // textBox1
+            // titleTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(118, 286);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(184, 22);
-            this.textBox1.TabIndex = 4;
+            this.titleTextBox.Location = new System.Drawing.Point(118, 286);
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(184, 22);
+            this.titleTextBox.TabIndex = 4;
             // 
-            // textBox2
+            // yearTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(118, 323);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(184, 22);
-            this.textBox2.TabIndex = 5;
+            this.yearTextBox.Location = new System.Drawing.Point(118, 323);
+            this.yearTextBox.Name = "yearTextBox";
+            this.yearTextBox.Size = new System.Drawing.Size(184, 22);
+            this.yearTextBox.TabIndex = 5;
             // 
-            // textBox3
+            // countryTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(118, 361);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(184, 22);
-            this.textBox3.TabIndex = 6;
+            this.countryTextBox.Location = new System.Drawing.Point(118, 361);
+            this.countryTextBox.Name = "countryTextBox";
+            this.countryTextBox.Size = new System.Drawing.Size(184, 22);
+            this.countryTextBox.TabIndex = 6;
             // 
-            // textBox4
+            // ratingTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(118, 401);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(184, 22);
-            this.textBox4.TabIndex = 7;
+            this.ratingTextBox.Location = new System.Drawing.Point(118, 401);
+            this.ratingTextBox.Name = "ratingTextBox";
+            this.ratingTextBox.Size = new System.Drawing.Size(184, 22);
+            this.ratingTextBox.TabIndex = 7;
             // 
-            // button2
+            // updateMovieButton
             // 
-            this.button2.Location = new System.Drawing.Point(46, 443);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 32);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Update movie";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.updateMovieButton.Location = new System.Drawing.Point(46, 443);
+            this.updateMovieButton.Name = "updateMovieButton";
+            this.updateMovieButton.Size = new System.Drawing.Size(159, 32);
+            this.updateMovieButton.TabIndex = 8;
+            this.updateMovieButton.Text = "Update movie";
+            this.updateMovieButton.UseVisualStyleBackColor = true;
+            this.updateMovieButton.Click += new System.EventHandler(this.updateMovieButton_Click);
             // 
-            // textBox5
+            // actorNameTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(417, 247);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(207, 22);
-            this.textBox5.TabIndex = 9;
+            this.actorNameTextBox.Location = new System.Drawing.Point(417, 247);
+            this.actorNameTextBox.Name = "actorNameTextBox";
+            this.actorNameTextBox.Size = new System.Drawing.Size(207, 22);
+            this.actorNameTextBox.TabIndex = 9;
             // 
-            // button3
+            // updateActorButton
             // 
-            this.button3.Location = new System.Drawing.Point(417, 286);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 33);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Update actor";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.updateActorButton.Location = new System.Drawing.Point(417, 286);
+            this.updateActorButton.Name = "updateActorButton";
+            this.updateActorButton.Size = new System.Drawing.Size(95, 33);
+            this.updateActorButton.TabIndex = 10;
+            this.updateActorButton.Text = "Update actor";
+            this.updateActorButton.UseVisualStyleBackColor = true;
+            this.updateActorButton.Click += new System.EventHandler(this.updateActorButton_Click);
             // 
-            // button4
+            // deleteActorButton
             // 
-            this.button4.Location = new System.Drawing.Point(526, 286);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(98, 33);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Delete selected actor";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.deleteActorButton.Location = new System.Drawing.Point(526, 286);
+            this.deleteActorButton.Name = "deleteActorButton";
+            this.deleteActorButton.Size = new System.Drawing.Size(98, 33);
+            this.deleteActorButton.TabIndex = 11;
+            this.deleteActorButton.Text = "Delete selected actor";
+            this.deleteActorButton.UseVisualStyleBackColor = true;
+            this.deleteActorButton.Click += new System.EventHandler(this.deleteActorButton_Click);
             // 
-            // button5
+            // addMovieButton
             // 
-            this.button5.Location = new System.Drawing.Point(118, 481);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(184, 32);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Add a new movie";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.addMovieButton.Location = new System.Drawing.Point(118, 481);
+            this.addMovieButton.Name = "addMovieButton";
+            this.addMovieButton.Size = new System.Drawing.Size(184, 32);
+            this.addMovieButton.TabIndex = 12;
+            this.addMovieButton.Text = "Add a new movie";
+            this.addMovieButton.UseVisualStyleBackColor = true;
+            this.addMovieButton.Click += new System.EventHandler(this.addMovieButton_Click);
             // 
-            // button6
+            // deleteMovieButton
             // 
-            this.button6.Location = new System.Drawing.Point(223, 443);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(155, 32);
-            this.button6.TabIndex = 13;
-            this.button6.Text = "Delete movie";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.deleteMovieButton.Location = new System.Drawing.Point(223, 443);
+            this.deleteMovieButton.Name = "deleteMovieButton";
+            this.deleteMovieButton.Size = new System.Drawing.Size(155, 32);
+            this.deleteMovieButton.TabIndex = 13;
+            this.deleteMovieButton.Text = "Delete movie";
+            this.deleteMovieButton.UseVisualStyleBackColor = true;
+            this.deleteMovieButton.Click += new System.EventHandler(this.deleteMovieButton_Click);
             // 
-            // button7
+            // addActorButtton
             // 
-            this.button7.Location = new System.Drawing.Point(462, 325);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(121, 33);
-            this.button7.TabIndex = 14;
-            this.button7.Text = "Add actor";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.addActorButtton.Location = new System.Drawing.Point(462, 325);
+            this.addActorButtton.Name = "addActorButtton";
+            this.addActorButtton.Size = new System.Drawing.Size(121, 33);
+            this.addActorButtton.TabIndex = 14;
+            this.addActorButtton.Text = "Add actor";
+            this.addActorButtton.UseVisualStyleBackColor = true;
+            this.addActorButtton.Click += new System.EventHandler(this.addActorButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1047, 516);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.addActorButtton);
+            this.Controls.Add(this.deleteMovieButton);
+            this.Controls.Add(this.addMovieButton);
+            this.Controls.Add(this.deleteActorButton);
+            this.Controls.Add(this.updateActorButton);
+            this.Controls.Add(this.actorNameTextBox);
+            this.Controls.Add(this.updateMovieButton);
+            this.Controls.Add(this.ratingTextBox);
+            this.Controls.Add(this.countryTextBox);
+            this.Controls.Add(this.yearTextBox);
+            this.Controls.Add(this.titleTextBox);
+            this.Controls.Add(this.actorsListBox);
+            this.Controls.Add(this.moviesListBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.loadButton);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -213,21 +213,21 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button loadButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ListBox moviesListBox;
+        private System.Windows.Forms.ListBox actorsListBox;
+        private System.Windows.Forms.TextBox titleTextBox;
+        private System.Windows.Forms.TextBox yearTextBox;
+        private System.Windows.Forms.TextBox countryTextBox;
+        private System.Windows.Forms.TextBox ratingTextBox;
+        private System.Windows.Forms.Button updateMovieButton;
+        private System.Windows.Forms.TextBox actorNameTextBox;
+        private System.Windows.Forms.Button updateActorButton;
+        private System.Windows.Forms.Button deleteActorButton;
+        private System.Windows.Forms.Button addMovieButton;
+        private System.Windows.Forms.Button deleteMovieButton;
+        private System.Windows.Forms.Button addActorButtton;
     }
 }
 
